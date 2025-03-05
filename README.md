@@ -2,6 +2,8 @@
 
 A free, user-friendly QR code generation tool provided by Good Heart Tech to help nonprofits and organizations create QR codes for their digital content and WiFi networks.
 
+Try it now at [qr.goodheart.tech](https://qr.goodheart.tech)
+
 ## About Good Heart Tech
 
 Good Heart Tech is a nonprofit organization dedicated to providing free technology services to other nonprofits. Our mission is to empower organizations to have a greater impact in their communities by removing technological barriers and providing expert IT support.
