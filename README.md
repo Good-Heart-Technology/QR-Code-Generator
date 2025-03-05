@@ -68,17 +68,18 @@ The application is designed to be lightweight and fast, using only the essential
 - Easy maintenance
 - Wide browser compatibility
 
-## Future Development
+### Deployment to Cloudflare Pages
 
-We're continuously working to expand our suite of free tools for nonprofits. Future updates may include additional QR code generation features to support various use cases and content types.
+- Fork this repository in GitHub.
+- Go to Cloudflare Pages and log in.
+- Click "Create a Project" and connect your repository.
+- Select the branch and leave the build settings as default.
+- Click "Deploy" and wait for the process to complete.
+- Once deployed, set up a custom domain if needed under "Custom Domains" in Cloudflare Pages settings.
 
 ## Support
 
-For support or to learn more about Good Heart Tech's services, visit [goodhearttech.org](https://goodhearttech.org/).
-
-## Contributing
-
-As a nonprofit organization, we welcome contributions from the community. If you'd like to help improve this tool or contribute to Good Heart Tech's mission, please visit our website to learn more about how you can get involved.
+To learn more about Good Heart Tech's services or make a donation, visit [goodhearttech.org](https://goodhearttech.org/).
 
 ## License
 
