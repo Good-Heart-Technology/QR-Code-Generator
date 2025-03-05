@@ -38,6 +38,19 @@ This tool is built with modern web technologies and follows best practices for:
 - Performance
 - User experience
 
+### Technologies Used
+- HTML5
+- CSS3 (with Flexbox for layout)
+- Vanilla JavaScript (ES6+)
+- QRCode.js library for QR code generation
+- No additional frameworks or dependencies
+
+The application is designed to be lightweight and fast, using only the essential technologies needed for QR code generation. This approach ensures:
+- Fast load times
+- No unnecessary dependencies
+- Easy maintenance
+- Wide browser compatibility
+
 ## Future Development
 
 We're continuously working to expand our suite of free tools for nonprofits. Future updates may include additional QR code generation features to support various use cases and content types.
