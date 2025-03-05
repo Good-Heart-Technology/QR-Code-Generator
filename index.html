@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free QR Code Generator - Create and download QR codes for any HTTPS URL. Simple, fast, and secure.">
+    <meta name="keywords" content="QR code generator, QR code creator, free QR code, HTTPS QR code, QR code download">
+    <meta name="author" content="Good Heart Tech">
+    <meta property="og:title" content="QR Code Generator - Good Heart Tech">
+    <meta property="og:description" content="Free QR Code Generator - Create and download QR codes for any HTTPS URL. Simple, fast, and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goodhearttech.org/qr-generator">
+    <title>QR Code Generator | Good Heart Tech</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #394053;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .attribution {
+            margin-bottom: 15px;
+            color: #394053;
+            font-size: 1.1em;
+            font-weight: 100;
+        }
+
+        .attribution a {
+            color: #7189ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .attribution a:hover {
+            color: #7189FE;
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: #394053;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #7189ff;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #7189FE;
+            box-shadow: 0 0 10px rgba(113, 137, 255, 0.2);
+        }
+
+        .error {
+            color: #ff4444;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        button {
+            background-color: #7189ff;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #7189FE;
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            background-color: #808080;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #qrcode {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            display: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        #qrcode img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .download-buttons {
+            display: none;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .download-buttons button {
+            background-color: #394053;
+        }
+
+        .download-buttons button:hover {
+            background-color: #7189ff;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1>QR Code Generator</h1>
+        <div class="attribution">
+            Created and provided by <a href="https://goodhearttech.org/" target="_blank" rel="noopener noreferrer">Good Heart Tech</a>, a nonprofit providing free IT services to other nonprofits.
+        </div>
+        <div class="input-group">
+            <label for="urlInput" class="sr-only">Enter URL</label>
+            <input type="text" id="urlInput" placeholder="Enter URL, starting with https://" aria-label="Enter HTTPS URL" />
+            <div class="error" id="errorMessage" role="alert">Please enter a valid HTTPS URL</div>
+        </div>
+        <button onclick="generateQR()" id="generateBtn" aria-label="Generate QR Code">Generate QR Code</button>
+        <div id="qrcode" role="img"></div>
+        <div class="download-buttons" id="downloadButtons">
+            <button onclick="downloadQR('png')" aria-label="Download QR Code as PNG">Download as PNG</button>
+            <button onclick="downloadQR('jpeg')" aria-label="Download QR Code as JPEG">Download as JPEG</button>
+        </div>
+    </main>
+
+    <script>
+        function isValidHttpsUrl(url) {
+            try {
+                const urlObj = new URL(url);
+                return urlObj.protocol === 'https:';
+            } catch {
+                return false;
+            }
+        }
+
+        function generateQR() {
+            const urlInput = document.getElementById('urlInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const qrcodeDiv = document.getElementById('qrcode');
+            const downloadButtons = document.getElementById('downloadButtons');
+            const url = urlInput.value.trim();
+
+            if (!isValidHttpsUrl(url)) {
+                errorMessage.style.display = 'block';
+                qrcodeDiv.style.display = 'none';
+                downloadButtons.style.display = 'none';
+                return;
+            }
+
+            errorMessage.style.display = 'none';
+            qrcodeDiv.style.display = 'flex';
+            qrcodeDiv.innerHTML = '';
+            
+            new QRCode(qrcodeDiv, {
+                text: url,
+                width: 300,
+                height: 300,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            downloadButtons.style.display = 'flex';
+        }
+
+        function downloadQR(format) {
+            const img = document.querySelector('#qrcode img');
+            if (!img) return;
+
+            const link = document.createElement('a');
+            link.download = `qr-code.${format}`;
+            link.href = img.src;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Add event listener for Enter key
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateQR();
+            }
+        });
+    </script>
+</body>
+</html> 
