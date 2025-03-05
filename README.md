@@ -1,0 +1,59 @@
+# QR Code Generator
+
+A free, user-friendly QR code generation tool provided by Good Heart Tech to help nonprofits and organizations create QR codes for their digital content.
+
+## About Good Heart Tech
+
+Good Heart Tech is a nonprofit organization dedicated to providing free technology services to other nonprofits. Our mission is to empower organizations to have a greater impact in their communities by removing technological barriers and providing expert IT support.
+
+We believe that technology should be an enabler, not a barrier, for organizations working to make the world a better place. Through our services, we help nonprofits:
+
+- Streamline their operations
+- Enhance their digital presence
+- Secure their data
+- Connect with their communities
+- Focus on their core mission
+
+## Features
+
+- Simple, intuitive interface
+- Instant QR code generation
+- Download options in multiple formats
+- Secure HTTPS URL validation
+- Mobile-friendly design
+- No registration required
+- Completely free to use
+
+## Usage
+
+1. Enter your URL in the input field (must start with https://)
+2. Click "Generate QR Code" or press Enter
+3. Download your QR code in PNG or JPEG format
+
+## Technical Details
+
+This tool is built with modern web technologies and follows best practices for:
+- Accessibility
+- Security
+- Performance
+- User experience
+
+## Future Development
+
+We're continuously working to expand our suite of free tools for nonprofits. Future updates may include additional QR code generation features to support various use cases and content types.
+
+## Support
+
+For support or to learn more about Good Heart Tech's services, visit [goodhearttech.org](https://goodhearttech.org/).
+
+## Contributing
+
+As a nonprofit organization, we welcome contributions from the community. If you'd like to help improve this tool or contribute to Good Heart Tech's mission, please visit our website to learn more about how you can get involved.
+
+## License
+
+This tool is provided free of charge by Good Heart Tech. While we encourage its use, we ask that you respect our mission and use it in accordance with our values of supporting nonprofit and community organizations.
+
+---
+
+Made with ❤️ by Good Heart Tech 
