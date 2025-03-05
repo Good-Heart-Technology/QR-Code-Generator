@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free QR Code Generator - Create and download QR codes for any HTTPS URL. Simple, fast, and secure.">
-    <meta name="keywords" content="QR code generator, QR code creator, free QR code, HTTPS QR code, QR code download">
+    <meta name="description" content="Free QR Code Generator - Create and download QR codes for URLs and WiFi networks. Simple, fast, and secure.">
+    <meta name="keywords" content="QR code generator, QR code creator, free QR code, HTTPS QR code, WiFi QR code, QR code download">
     <meta name="author" content="Good Heart Tech">
     <meta property="og:title" content="QR Code Generator - Good Heart Tech">
-    <meta property="og:description" content="Free QR Code Generator - Create and download QR codes for any HTTPS URL. Simple, fast, and secure.">
+    <meta property="og:description" content="Free QR Code Generator - Create and download QR codes for URLs and WiFi networks. Simple, fast, and secure.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://goodhearttech.org/qr-generator">
     <title>QR Code Generator | Good Heart Tech</title>
@@ -66,9 +66,42 @@
             font-size: 2.5em;
         }
 
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            width: 100%;
+            border-bottom: 2px solid #7189ff;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px;
+            cursor: pointer;
+            color: #394053;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            color: #7189ff;
+            border-bottom: 2px solid #7189ff;
+            margin-bottom: -2px;
+        }
+
+        .tab:hover {
+            color: #7189FE;
+        }
+
         .input-group {
             margin-bottom: 20px;
             width: 100%;
+        }
+
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #394053;
         }
 
         input {
@@ -150,6 +183,14 @@
         .download-buttons button:hover {
             background-color: #7189ff;
         }
+
+        .form-group {
+            display: none;
+        }
+
+        .form-group.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -158,20 +199,63 @@
         <div class="attribution">
             Created and provided by <a href="https://goodhearttech.org/" target="_blank" rel="noopener noreferrer">Good Heart Tech</a>, a nonprofit providing free IT services to other nonprofits.
         </div>
-        <div class="input-group">
-            <label for="urlInput" class="sr-only">Enter URL</label>
-            <input type="text" id="urlInput" placeholder="Enter URL, starting with https://" aria-label="Enter HTTPS URL" />
-            <div class="error" id="errorMessage" role="alert">Please enter a valid HTTPS URL</div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('url')">URL</div>
+            <div class="tab" onclick="switchTab('wifi')">WiFi</div>
         </div>
-        <button onclick="generateQR()" id="generateBtn" aria-label="Generate QR Code">Generate QR Code</button>
+
+        <div class="form-group active" id="urlForm">
+            <div class="input-group">
+                <label for="urlInput">Enter URL</label>
+                <input type="text" id="urlInput" placeholder="Enter URL, starting with https://" />
+                <div class="error" id="urlError">Please enter a valid HTTPS URL</div>
+            </div>
+            <button onclick="generateUrlQR()" id="generateUrlBtn">Generate QR Code</button>
+        </div>
+
+        <div class="form-group" id="wifiForm">
+            <div class="input-group">
+                <label for="ssidInput">Network Name (SSID)</label>
+                <input type="text" id="ssidInput" placeholder="Enter WiFi network name" />
+            </div>
+            <div class="input-group">
+                <label for="passwordInput">Password</label>
+                <input type="password" id="passwordInput" placeholder="Enter WiFi password" />
+            </div>
+            <div class="input-group">
+                <label for="encryptionInput">Encryption Type</label>
+                <select id="encryptionInput" style="width: 100%; padding: 15px; border: 2px solid #7189ff; border-radius: 10px; font-size: 16px; outline: none; background: white;">
+                    <option value="WPA">WPA/WPA2</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">No Password</option>
+                </select>
+            </div>
+            <button onclick="generateWifiQR()" id="generateWifiBtn">Generate QR Code</button>
+        </div>
+
         <div id="qrcode" role="img"></div>
         <div class="download-buttons" id="downloadButtons">
-            <button onclick="downloadQR('png')" aria-label="Download QR Code as PNG">Download as PNG</button>
-            <button onclick="downloadQR('jpeg')" aria-label="Download QR Code as JPEG">Download as JPEG</button>
+            <button onclick="downloadQR('png')">Download as PNG</button>
+            <button onclick="downloadQR('jpeg')">Download as JPEG</button>
         </div>
     </main>
 
     <script>
+        function switchTab(tab) {
+            // Update tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab:nth-child(${tab === 'url' ? '1' : '2'})`).classList.add('active');
+            
+            // Update forms
+            document.querySelectorAll('.form-group').forEach(f => f.classList.remove('active'));
+            document.getElementById(`${tab}Form`).classList.add('active');
+            
+            // Clear QR code and download buttons
+            document.getElementById('qrcode').style.display = 'none';
+            document.getElementById('downloadButtons').style.display = 'none';
+        }
+
         function isValidHttpsUrl(url) {
             try {
                 const urlObj = new URL(url);
@@ -181,9 +265,9 @@
             }
         }
 
-        function generateQR() {
+        function generateUrlQR() {
             const urlInput = document.getElementById('urlInput');
-            const errorMessage = document.getElementById('errorMessage');
+            const errorMessage = document.getElementById('urlError');
             const qrcodeDiv = document.getElementById('qrcode');
             const downloadButtons = document.getElementById('downloadButtons');
             const url = urlInput.value.trim();
@@ -211,6 +295,36 @@
             downloadButtons.style.display = 'flex';
         }
 
+        function generateWifiQR() {
+            const ssid = document.getElementById('ssidInput').value.trim();
+            const password = document.getElementById('passwordInput').value.trim();
+            const encryption = document.getElementById('encryptionInput').value;
+            const qrcodeDiv = document.getElementById('qrcode');
+            const downloadButtons = document.getElementById('downloadButtons');
+
+            if (!ssid) {
+                alert('Please enter a network name');
+                return;
+            }
+
+            // Format: WIFI:S:<SSID>;T:<WPA|WEP|>;P:<password>;;
+            const wifiString = `WIFI:S:${ssid};T:${encryption};P:${password};;`;
+            
+            qrcodeDiv.style.display = 'flex';
+            qrcodeDiv.innerHTML = '';
+            
+            new QRCode(qrcodeDiv, {
+                text: wifiString,
+                width: 300,
+                height: 300,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            downloadButtons.style.display = 'flex';
+        }
+
         function downloadQR(format) {
             const img = document.querySelector('#qrcode img');
             if (!img) return;
@@ -223,10 +337,22 @@
             document.body.removeChild(link);
         }
 
-        // Add event listener for Enter key
+        // Add event listeners for Enter key
         document.getElementById('urlInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                generateQR();
+                generateUrlQR();
+            }
+        });
+
+        document.getElementById('ssidInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateWifiQR();
+            }
+        });
+
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateWifiQR();
             }
         });
     </script>
