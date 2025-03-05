@@ -1,6 +1,6 @@
 # QR Code Generator
 
-A free, user-friendly QR code generation tool provided by Good Heart Tech to help nonprofits and organizations create QR codes for their digital content.
+A free, user-friendly QR code generation tool provided by Good Heart Tech to help nonprofits and organizations create QR codes for their digital content and WiFi networks.
 
 ## About Good Heart Tech
 
@@ -20,15 +20,30 @@ We believe that technology should be an enabler, not a barrier, for organization
 - Instant QR code generation
 - Download options in multiple formats
 - Secure HTTPS URL validation
+- WiFi network QR code generation
+  - Network name (SSID) support
+  - Password protection
+  - Multiple encryption types (WPA/WPA2, WEP, Open)
 - Mobile-friendly design
 - No registration required
 - Completely free to use
 
 ## Usage
 
-1. Enter your URL in the input field (must start with https://)
-2. Click "Generate QR Code" or press Enter
-3. Download your QR code in PNG or JPEG format
+### URL QR Codes
+1. Select the "URL" tab
+2. Enter your URL in the input field (must start with https://)
+3. Click "Generate QR Code" or press Enter
+4. Download your QR code in PNG or JPEG format
+
+### WiFi QR Codes
+1. Select the "WiFi" tab
+2. Enter your network name (SSID)
+3. Enter your WiFi password (if required)
+4. Select the encryption type (WPA/WPA2, WEP, or No Password)
+5. Click "Generate QR Code"
+6. Download your QR code in PNG or JPEG format
+7. Scan with a smartphone to automatically connect to the network
 
 ## Technical Details
 
