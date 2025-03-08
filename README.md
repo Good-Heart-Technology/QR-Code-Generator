@@ -1,6 +1,8 @@
 # QR Code Generator
 
-A free, user-friendly QR code generation tool provided by Good Heart Tech to help nonprofits and organizations create QR codes for their digital content and WiFi networks.
+This app was created and hosted by Good Heart Tech. Good Heart Tech is a nonprofit dedicated to supporting other nonprofit organizations by providing accessible, technology-driven solutions. We believe in empowering nonprofits with the tools they need to operate effectively and securely in the digital age. Donate here: [goodhearttech.org/donate](https://goodhearttech.org/donate/)
+
+## Live Tool
 
 Try it now at [qr.goodheart.tech](https://qr.goodheart.tech)
 
@@ -19,13 +21,11 @@ We believe that technology should be an enabler, not a barrier, for organization
 ## Features
 
 - Simple, intuitive interface
-- Instant QR code generation
-- Download options in multiple formats
+- Instant QR code generation for:
+  - URLs (HTTPS)
+  - WiFi networks (SSID, password, encryption type)
+- Download options in multiple formats (PNG, JPEG)
 - Secure HTTPS URL validation
-- WiFi network QR code generation
-  - Network name (SSID) support
-  - Password protection
-  - Multiple encryption types (WPA/WPA2, WEP, Open)
 - Mobile-friendly design
 - No registration required
 - Completely free to use
@@ -60,7 +60,7 @@ This tool is built with modern web technologies and follows best practices for:
 - CSS3 (with Flexbox for layout)
 - Vanilla JavaScript (ES6+)
 - QRCode.js library for QR code generation
-- No additional frameworks or dependencies
+- Hosted on Cloudflare Pages
 
 The application is designed to be lightweight and fast, using only the essential technologies needed for QR code generation. This approach ensures:
 - Fast load times
@@ -68,23 +68,14 @@ The application is designed to be lightweight and fast, using only the essential
 - Easy maintenance
 - Wide browser compatibility
 
-### Deployment to Cloudflare Pages
+## Open Source Commitment
 
-- Fork this repository in GitHub.
-- Go to Cloudflare Pages and log in.
-- Click "Create a Project" and connect your repository.
-- Select the branch and leave the build settings as default.
-- Click "Deploy" and wait for the process to complete.
-- Once deployed, set up a custom domain if needed under "Custom Domains" in Cloudflare Pages settings.
+Good Heart Tech is committed to open-source software and the principles of transparency, collaboration, and accessibility. Our projects are released under the GNU General Public License v3.0 (GPLv3), ensuring that anyone can use, modify, and distribute our code while upholding the same freedoms for others.
 
-## Support
-
-To learn more about Good Heart Tech's services or make a donation, visit [goodhearttech.org](https://goodhearttech.org/).
-
-## License
-
-This tool is provided free of charge by Good Heart Tech. While we encourage its use, we ask that you respect our mission and use it in accordance with our values of supporting nonprofit and community organizations.
+We believe in empowering nonprofits and the broader community with open, secure, and reliable technology solutions. Contributions and feedback are always welcome! For details, see our LICENSE file.
 
 ---
+
+ℹ️ **Disclaimer:** The tools on this site are for informational use only and do not constitute professional advice. Use at your own discretion.
 
 Made with ❤️ by Good Heart Tech 
