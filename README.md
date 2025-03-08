@@ -76,6 +76,6 @@ We believe in empowering nonprofits and the broader community with open, secure,
 
 ---
 
-ℹ️ **Disclaimer:** This tool is for informational use only and does not constitute professional advice. While we strive for accuracy, the tool may become outdated, inaccurate, or cease to function at any time. Use at your own discretion.
+ℹ️ **Disclaimer:** This tool is for informational use only. While we strive for accuracy, the tool may become outdated, inaccurate, or cease to function at any time. Use at your own discretion.
 
 Made with ❤️ by Good Heart Tech 
