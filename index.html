@@ -26,12 +26,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            padding: 5px;
         }
 
         .container {
             background-color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             width: 100%;
@@ -253,6 +253,21 @@
             <button onclick="downloadQR('png')">Download as PNG</button>
             <button onclick="downloadQR('jpeg')">Download as JPEG</button>
         </div>
+
+        <div class="footer">
+            <a href="https://goodhearttech.org/" target="_blank" rel="noopener noreferrer">
+                <img src="https://graphics.goodhearttech.org/GHT/Icon-Large.png" alt="Good Heart Tech Icon" style="width: 40px; height: auto; margin-right: 10px;">
+            </a>
+            <a href="https://github.com/Good-Heart-Technology/QR-Code-Generator" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Icon" style="width: 40px; height: auto; margin-right: 10px;">
+            </a>
+            <div style="margin-top: 10px;">
+                <span>© <span id="currentYear"></span> Good Heart Tech. All rights reserved.</span>
+            </div>
+            <div class="disclaimer" style="margin-top: 10px; display: flex; align-items: center; justify-content: center;">
+                <span><i>ℹ️ This tool is for informational use only. While we strive for accuracy, the too l may becomeoutdated, inaccurate, or cease to function at any time. Use at your own discretion.</i></span>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -369,6 +384,9 @@
                 generateWifiQR();
             }
         });
+
+        // Set the current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html> 
