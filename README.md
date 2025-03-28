@@ -1,6 +1,6 @@
 # QR Code Generator
 
-A free, open-source QR code generator created by [Good Heart Tech](https://goodhearttech.org/) to help nonprofits and organizations create QR codes easily and securely. Try it out at [qr.nonprofittools.org](https://qr.nonprofittools.org/)!
+A free, open-source QR code generator created by [Good Heart Tech](https://goodhearttech.org/) to help nonprofits and organizations create QR codes easily and securely. Use it free of charge at [qr.nonprofittools.org](https://qr.nonprofittools.org/)!
 
 ## 👋 About Good Heart Tech
 
