@@ -51,7 +51,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div align="center">
+<div>
   <a href="https://goodhearttech.org/">
     <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" height="50">
   </a>
@@ -61,9 +61,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   </a>
 </div>
 
-<style>
-h1 { color: #394053; }
-h2 { color: #a0ddff; }
-a { color: #7189ff; }
-a:hover { color: #394053; }
-</style>
