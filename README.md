@@ -1,81 +1,69 @@
 # QR Code Generator
 
-This app was created and hosted by Good Heart Tech. Good Heart Tech is a nonprofit dedicated to supporting other nonprofit organizations by providing accessible, technology-driven solutions. We believe in empowering nonprofits with the tools they need to operate effectively and securely in the digital age. Donate here: [goodhearttech.org/donate](https://goodhearttech.org/donate/)
-
-## Live Tool
-
-Try it now at [qr.goodheart.tech](https://qr.goodheart.tech)
+A free, open-source QR code generator created by Good Heart Tech to help nonprofits and organizations create QR codes easily and securely.
 
 ## About Good Heart Tech
 
-Good Heart Tech is a nonprofit organization dedicated to providing free technology services to other nonprofits. Our mission is to empower organizations to have a greater impact in their communities by removing technological barriers and providing expert IT support.
+Good Heart Tech is a nonprofit dedicated to supporting other nonprofit organizations by providing accessible, technology-driven solutions. We believe in empowering nonprofits with the tools they need to operate effectively and securely in the digital age.
 
-We believe that technology should be an enabler, not a barrier, for organizations working to make the world a better place. Through our services, we help nonprofits:
-
-- Streamline their operations
-- Enhance their digital presence
-- Secure their data
-- Connect with their communities
-- Focus on their core mission
+<a href="https://goodhearttech.org/donate/">
+  <img src="https://img.shields.io/badge/Donate-Support%20Good%20Heart%20Tech-%237189ff?style=for-the-badge&logo=heart&logoColor=white" alt="Donate to Good Heart Tech">
+</a>
 
 ## Features
 
-- Simple, intuitive interface
-- Instant QR code generation for:
-  - URLs (HTTPS)
-  - WiFi networks (SSID, password, encryption type)
-- Download options in multiple formats (PNG, JPEG)
-- Secure HTTPS URL validation
-- Mobile-friendly design
+- Generate QR codes from text, URLs, or contact information
+- Customize QR code colors and styling
+- Download QR codes in high-resolution PNG format
+- Mobile-friendly interface
 - No registration required
-- Completely free to use
+- Free to use
+- Privacy-focused (all processing happens in your browser)
 
-## Usage
+## 🛠️ Tech Stack
 
-### URL QR Codes
-1. Select the "URL" tab
-2. Enter your URL in the input field (must start with https://)
-3. Click "Generate QR Code" or press Enter
-4. Download your QR code in PNG or JPEG format
-
-### WiFi QR Codes
-1. Select the "WiFi" tab
-2. Enter your network name (SSID)
-3. Enter your WiFi password (if required)
-4. Select the encryption type (WPA/WPA2, WEP, or No Password)
-5. Click "Generate QR Code"
-6. Download your QR code in PNG or JPEG format
-7. Scan with a smartphone to automatically connect to the network
-
-## Technical Details
-
-This tool is built with modern web technologies and follows best practices for:
-- Accessibility
-- Security
-- Performance
-- User experience
-
-### Technologies Used
 - HTML5
-- CSS3 (with Flexbox for layout)
-- Vanilla JavaScript (ES6+)
-- QRCode.js library for QR code generation
+- CSS3
+- JavaScript
+- QRCode.js library
 - Hosted on Cloudflare Pages
 
-The application is designed to be lightweight and fast, using only the essential technologies needed for QR code generation. This approach ensures:
-- Fast load times
-- No unnecessary dependencies
-- Easy maintenance
-- Wide browser compatibility
+## 🚀 Deployment Instructions
 
-## Open Source Commitment
+1. Fork this repository to your GitHub account
+2. Log in to your Cloudflare account
+3. Go to Pages in your Cloudflare dashboard
+4. Click "Create a project"
+5. Choose "Connect to Git"
+6. Select your forked repository
+7. Configure your build settings:
+   - Build command: (leave empty)
+   - Build output directory: /
+8. Click "Save and Deploy"
 
-Good Heart Tech is committed to open-source software and the principles of transparency, collaboration, and accessibility. Our projects are released under the GNU General Public License v3.0 (GPLv3), ensuring that anyone can use, modify, and distribute our code while upholding the same freedoms for others.
+## 📄 License
 
-We believe in empowering nonprofits and the broader community with open, secure, and reliable technology solutions. Contributions and feedback are always welcome! For details, see our LICENSE file.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## ⚠️ Disclaimer
+
+ℹ️ This QR code generator is provided as a free service for informational purposes only. While we strive to maintain high availability and accuracy, the service may experience interruptions or stop functioning at any time. The generated QR codes are provided without any guarantees or warranties. Users are responsible for verifying the accuracy of generated QR codes before use. Use this tool at your own discretion and risk.
 
 ---
 
-ℹ️ **Disclaimer:** This tool is for informational use only. While we strive for accuracy, the tool may become outdated, inaccurate, or cease to function at any time. Use at your own discretion.
+<div align="center">
+  <a href="https://goodhearttech.org/">
+    <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech Logo" height="50">
+  </a>
+  <br>
+  <a href="https://goodhearttech.org/donate/">
+    <img src="https://img.shields.io/badge/❤️_Donate_to_Good_Heart_Tech-%237189ff?style=for-the-badge&logo=heart&logoColor=white" alt="Donate to Good Heart Tech">
+  </a>
+</div>
 
-Made with ❤️ by Good Heart Tech 
+<style>
+h1 { color: #394053; }
+h2 { color: #a0ddff; }
+a { color: #7189ff; }
+a:hover { color: #394053; }
+</style>
