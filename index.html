@@ -339,15 +339,15 @@
         </div>
         
         <div class="tabs">
-            <div class="tab active" onclick="switchTab('url')">URL</div>
+            <div class="tab active" onclick="switchTab('url')">URL or App Link</div>
             <div class="tab" onclick="switchTab('wifi')">WiFi</div>
         </div>
 
         <div class="form-group active" id="urlForm">
             <div class="input-group">
-                <label for="urlInput">Enter URL</label>
-                <input type="text" id="urlInput" placeholder="https://" />
-                <div class="error" id="urlError">Please enter a valid HTTPS URL</div>
+                <label for="urlInput">Enter URL or App Link</label>
+                <input type="text" id="urlInput" placeholder="https:// or app://" />
+                <div class="error" id="urlError">Please enter a valid URL or app link (must contain ://)</div>
             </div>
             <button onclick="generateUrlQR()" id="generateUrlBtn">Generate QR Code</button>
         </div>
@@ -416,10 +416,20 @@
             document.getElementById('downloadButtons').style.display = 'none';
         }
 
-        function isValidHttpsUrl(url) {
+        function isValidUrl(url) {
             try {
-                const urlObj = new URL(url);
-                return urlObj.protocol === 'https:';
+                // Check if the URL contains :// which is required for both web URLs and app links
+                if (!url.includes('://')) {
+                    return false;
+                }
+                // For web URLs, validate them properly
+                if (url.startsWith('http://') || url.startsWith('https://')) {
+                    new URL(url);
+                    return true;
+                }
+                // For app links, just ensure they have a protocol and content after ://
+                const parts = url.split('://');
+                return parts.length === 2 && parts[0].length > 0 && parts[1].length > 0;
             } catch {
                 return false;
             }
@@ -432,7 +442,7 @@
             const downloadButtons = document.getElementById('downloadButtons');
             const url = urlInput.value.trim();
 
-            if (!isValidHttpsUrl(url)) {
+            if (!isValidUrl(url)) {
                 errorMessage.style.display = 'block';
                 qrcodeDiv.classList.remove('visible');
                 downloadButtons.style.display = 'none';
